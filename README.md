@@ -50,9 +50,3 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 <div align="center">
 <img src="./src/assets/chartimage.png" width="100%"></img>
 <div>
-
-## Charts Without Label Screenshots
-
-<div align="center">
-<img src="./src/assets/newchartimage.png" width="100%"></img>
-</div>
