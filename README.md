@@ -44,3 +44,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Charts With Label Screeshots
+
+<div align="center">
+<img src="./src/assets/chartimage.png" width="100%"></img>
+<div>
+
+## Charts Without Label Screenshots
+
+<div align="center">
+<img src="./src/assets/newchartimage.png" width="100%"></img>
+</div>
