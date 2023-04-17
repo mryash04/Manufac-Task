@@ -1,75 +1,75 @@
-import React from 'react';
+import React from "react";
 import ReactEcharts from "echarts-for-react";
 import WineData from "../../wineData";
-import { IWineData } from '../../wineData';
-import { EchartOptions } from '../../interfaces/chartOptions';
+import { IWineData } from "../../wineData";
+import { EchartOptions } from "../../interfaces/chartOptions";
 
 const BarChart = () => {
 
-  const AlcholFisrtData = WineData.filter((value : any, index : number) => value.Alcohol === 1);
+    const AlcholFisrtData = WineData.filter((value : IWineData) => value.Alcohol === 1);
 
-  const AlcholSecondData = WineData.filter((value : IWineData, index : number) => value.Alcohol === 2);
+    const AlcholSecondData = WineData.filter((value : IWineData) => value.Alcohol === 2);
 
-  const AlcholThirdData = WineData.filter((value : IWineData, index : number) => value.Alcohol === 3);
+    const AlcholThirdData = WineData.filter((value : IWineData) => value.Alcohol === 3);
 
-  // Finding Unique Alchol Data
+    // Finding Unique Alchol Data
 
-  const uniqueAlcholData = [...new Set(WineData.map((value : IWineData) => value.Alcohol))];
+    const uniqueAlcholData = [...new Set(WineData.map((value : IWineData) => value.Alcohol))];
 
-  // Finding Alchol1 Minimum Magnesium Value
+    // Finding Alchol1 Minimum Magnesium Value
 
-  const closest = AlcholFisrtData.reduce(
-    (acc : IWineData, loc : IWineData) =>
-      acc.Magnesium < loc.Magnesium
-        ? acc
-        : loc
-  );
+    const closest = AlcholFisrtData.reduce(
+        (acc : IWineData, loc : IWineData) =>
+            acc.Magnesium < loc.Magnesium
+                ? acc
+                : loc
+    );
 
-  // Finding Alchol2 Minimum Magnesium Value
+    // Finding Alchol2 Minimum Magnesium Value
 
-  const closestFirst = AlcholSecondData.reduce(
-    (acc : IWineData, loc : IWineData) =>
-      acc.Magnesium < loc.Magnesium
-        ? acc
-        : loc
-  );
+    const closestFirst = AlcholSecondData.reduce(
+        (acc : IWineData, loc : IWineData) =>
+            acc.Magnesium < loc.Magnesium
+                ? acc
+                : loc
+    );
 
-  // Finding Alchol3 Minimum Magnesium Value
+    // Finding Alchol3 Minimum Magnesium Value
 
-  const closestSecond = AlcholThirdData.reduce(
-    (acc : IWineData, loc : IWineData) =>
-      acc.Magnesium < loc.Magnesium
-        ? acc
-        : loc
-  );
+    const closestSecond = AlcholThirdData.reduce(
+        (acc : IWineData, loc : IWineData) =>
+            acc.Magnesium < loc.Magnesium
+                ? acc
+                : loc
+    );
   
 
     const option : EchartOptions = {
         xAxis: {
-          type: 'category',
-          data: uniqueAlcholData
+            type: "category",
+            data: uniqueAlcholData
         },
         yAxis: {
-          type: 'value'
+            type: "value"
         },
         series: [
-          {
-            data: [closest.Magnesium, closestFirst.Magnesium, closestSecond.Magnesium],
-            type: 'bar',
-            label : {
-                show : true
+            {
+                data: [closest.Magnesium, closestFirst.Magnesium, closestSecond.Magnesium],
+                type: "bar",
+                label : {
+                    show : true
+                }
             }
-          }
         ]
-      }; 
+    }; 
       
 
-  return (
-    <>
-        <h2 style={{textAlign : "center"}}>Bar Chart visualization</h2>
-        <ReactEcharts option={option} style={{height : "300px", width : "100%"}} />
-    </>
-  )
-}
+    return (
+        <>
+            <h2 style={{textAlign : "center"}}>Bar Chart visualization</h2>
+            <ReactEcharts option={option} style={{height : "300px", width : "100%"}} />
+        </>
+    );
+};
 
-export default BarChart
+export default BarChart;
