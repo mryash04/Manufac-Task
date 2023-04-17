@@ -12,6 +12,10 @@ const BarChart = () => {
 
   const AlcholThirdData = WineData.filter((value : IWineData, index : number) => value.Alcohol === 3);
 
+  // Finding Unique Alchol Data
+
+  const uniqueAlcholData = [...new Set(WineData.map((value : IWineData) => value.Alcohol))];
+
   // Finding Alchol1 Minimum Magnesium Value
 
   const closest = AlcholFisrtData.reduce(
@@ -43,7 +47,7 @@ const BarChart = () => {
     const option : EchartOptions = {
         xAxis: {
           type: 'category',
-          data: ["Alchol 1", "Alchol 2", "Alchol 3"]
+          data: uniqueAlcholData
         },
         yAxis: {
           type: 'value'
